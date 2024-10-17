@@ -36,12 +36,12 @@ int main() {
     // chardata
     imgsrc = (char*)&bitmapdata[0];  // chardata is at pos0
     imgdest = (char*)0x4000;
-    copymem(imgsrc, imgdest, 2000); 
+    copymem(imgsrc, imgdest, 0x2000); 
 
     // screendata
     imgsrc = (char*)&bitmapdata[8000];  // bitmapdata + 8000
     imgdest = (char*)0x6000;
-    copymem(imgsrc, imgdest, 1000);     
+    copymem(imgsrc, imgdest, 0x1000);     
 
     // colordata
     imgsrc = (char*)&bitmapdata[9000];   // bitmapdata + 8k + 1k
