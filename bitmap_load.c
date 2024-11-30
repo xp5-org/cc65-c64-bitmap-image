@@ -15,8 +15,11 @@ void copymem(char* src, char* dest, int length) {
 }
 
 int main() {
-    char *imgsrc;
-    char *imgdest;
+    // VIC Bank locations
+    // $DD00 bank0 $0000-$3fff
+    // $DD00 bank1 $4000-$7fff
+    // $DD00 bank2 $8000-$bfff
+    // $DD00 bank3 $c000-$ffff
 
     // VIC registers
     (*(char*)0xD011) = 0x3B;  // 25 rows=
@@ -29,12 +32,12 @@ int main() {
     // chardata
     imgsrc = (char*)&bitmapdata[0];  // chardata is at pos0
     imgdest = (char*)0x4000;
-    copymem(imgsrc, imgdest, 0x2000); 
+    copymem(imgsrc, imgdest, 8000); 
 
     // screendata
     imgsrc = (char*)&bitmapdata[8000];  // bitmapdata + 8000
     imgdest = (char*)0x6000;
-    copymem(imgsrc, imgdest, 0x1000);     
+    copymem(imgsrc, imgdest, 1000);     
 
     // colordata
     imgsrc = (char*)&bitmapdata[9000];   // bitmapdata + 8k + 1k
