@@ -32,7 +32,7 @@ int main() {
     // chardata
     imgsrc = (char*)&bitmapdata[0];  // chardata is at pos0
     imgdest = (char*)0x4000;
-    copymem(imgsrc, imgdest, 2000); 
+    copymem(imgsrc, imgdest, 8000); 
 
     // screendata
     imgsrc = (char*)&bitmapdata[8000];  // bitmapdata + 8000
